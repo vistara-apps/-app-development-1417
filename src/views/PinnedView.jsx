@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Filter, BookmarkCheck } from 'lucide-react';
+import { Search, Filter, Bookmark } from 'lucide-react';
 import { mockPinnedItems } from '../data/mockData';
 import PinnedItem from '../components/PinnedItem';
 
@@ -93,7 +93,7 @@ const PinnedView = () => {
       {filteredItems.length === 0 && (
         <div className="text-center py-12">
           <div className="w-16 h-16 bg-surface rounded-full flex items-center justify-center mx-auto mb-4">
-            <BookmarkCheck className="w-8 h-8 text-text-secondary" />
+            <Bookmark className="w-8 h-8 text-text-secondary" />
           </div>
           <h3 className="text-lg font-semibold text-text-primary mb-2">
             {pinnedItems.length === 0 ? 'No pinned items yet' : 'No items found'}

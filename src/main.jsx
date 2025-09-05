@@ -15,22 +15,41 @@ import {
   QueryClientProvider,
   QueryClient,
 } from "@tanstack/react-query";
+import { Toaster } from 'react-hot-toast';
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { AuthProvider } from './contexts/AuthContext.jsx'
+
+const queryClient = new QueryClient();
+
+const wagmiConfig = getDefaultConfig({
+  appName: "Nexus Weaver",
+  projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || "9f4bd472c01ba49282b42e5e1874c2af",
+  chains: [mainnet, polygon, optimism, arbitrum, base],
+});
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <WagmiProvider config={getDefaultConfig({
-      appName: "Nexus Weaver",
-      projectId: "9f4bd472c01ba49282b42e5e1874c2af",
-      chains: [mainnet, polygon, optimism, arbitrum, base],
-    })}>
-      <QueryClientProvider client={new QueryClient()}>
+    <WagmiProvider config={wagmiConfig}>
+      <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
-          <App />
+          <AuthProvider>
+            <App />
+            <Toaster 
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: 'hsl(230 20% 16%)',
+                  color: 'hsl(230 10% 95%)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                },
+              }}
+            />
+          </AuthProvider>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

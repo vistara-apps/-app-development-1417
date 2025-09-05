@@ -2,7 +2,7 @@ import {
   Home, 
   Network, 
   MessageCircle, 
-  BookmarkCheck, 
+  Bookmark, 
   Settings,
   BarChart3
 } from 'lucide-react';
@@ -12,7 +12,7 @@ const Sidebar = ({ activeView, setActiveView }) => {
     { id: 'dashboard', icon: Home, label: 'Dashboard' },
     { id: 'networks', icon: Network, label: 'Networks' },
     { id: 'routing', icon: MessageCircle, label: 'Routing' },
-    { id: 'pinned', icon: BookmarkCheck, label: 'Pinned' },
+    { id: 'pinned', icon: Bookmark, label: 'Pinned' },
     { id: 'analytics', icon: BarChart3, label: 'Analytics' },
     { id: 'settings', icon: Settings, label: 'Settings' }
   ];
