@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { Network, MessageCircle, BookmarkCheck, TrendingUp, Users, Activity } from 'lucide-react';
+import { Network, MessageCircle, Bookmark, TrendingUp, Users, Activity } from 'lucide-react';
 import { mockNetworks, mockAnalyticsData } from '../data/mockData';
 import NetworkCard from '../components/NetworkCard';
 import ConnectionStatusIndicator from '../components/ConnectionStatusIndicator';
@@ -35,7 +35,7 @@ const Dashboard = () => {
     {
       title: 'Pinned Items',
       value: 12,
-      icon: BookmarkCheck,
+      icon: Bookmark,
       change: '+3 today',
       color: 'text-yellow-400'
     }
